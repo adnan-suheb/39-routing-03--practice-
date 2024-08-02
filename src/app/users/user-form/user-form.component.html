@@ -1,0 +1,177 @@
+<mat-card>
+    <mat-card-title class="formHeading" align="center">
+        {{!isInEditMode?'Add User':"Update User"}}
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+            <div class="row">
+                <!-- username -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>account_circle</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Username</mat-label>
+                            <input formControlName="userName" matInput type="text" placeholder="John Doe">
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userName'].touched&& control['userName'].hasError('required')">
+                                    Username is required field!!! <br>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="control['userName'].dirty && control['userName'].hasError('pattern')">
+                                    Username should not include numeric and special characters!!! <br>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="control['userName'].dirty && control['userName'].hasError('minlength')">
+                                    Minimum length of username should be
+                                    {{control['userName'].errors?.['minlength'].requiredLength}}.
+                                    Current Length is {{control['userName'].errors?.['minlength'].actualLength}}
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <!-- email -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>alternate_email</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Email</mat-label>
+                            <input formControlName="userEmail" matInput type="text" placeholder="johndoe@gmail.com">
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userEmail'].touched&& control['userEmail'].hasError('required')">
+                                    Email is required field!!! <br>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="control['userEmail'].dirty && control['userEmail'].hasError('pattern')">
+                                    Invalid Email Pattern!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- image url -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>image</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Image URL</mat-label>
+                            <input formControlName="personImg" matInput type="text">
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['personImg'].touched&& control['personImg'].hasError('required')">
+                                    Image URL is required field!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- userrole -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>admin_panel_settings</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Select User Role</mat-label>
+                            <mat-select formControlName="userRole">
+                                <mat-option value="admin">Admin</mat-option>
+                                <mat-option value="buyer">Buyer</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userRole'].touched&& control['userRole'].hasError('required')">
+                                    Please confirm user role!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- gender -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>wc</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Select Gender</mat-label>
+                            <mat-select formControlName="userGender">
+                                <mat-option value="Male">Male</mat-option>
+                                <mat-option value="Female">Female</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userGender'].touched&& control['userGender'].hasError('required')">
+                                    Please confirm gender!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- age -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>badge</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Age</mat-label>
+                            <mat-select formControlName="userAge">
+                                <mat-option [value]="age" *ngFor="let age of ageArr">{{age}}</mat-option>
+
+                            </mat-select>
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userAge'].touched&& control['userAge'].hasError('required')">
+                                    Please confirm age!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- details -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>info</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Details</mat-label>
+                            <textarea matInput formControlName="userDetails"></textarea>
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userDetails'].touched&& control['userDetails'].hasError('required')">
+                                    Details field is required!!! <br>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="control['userDetails'].dirty&& control['userDetails'].hasError('minlength')">
+                                    Minimum length required is
+                                    {{control['userDetails'].errors?.['minlength'].requiredLength}}.
+                                    Current Length is {{control['userDetails'].errors?.['minlength'].actualLength}}
+                                    <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- address -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>location_on</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Address</mat-label>
+                            <input formControlName="userAddress" matInput type="text">
+                            <mat-error>
+                                <ng-container
+                                    *ngIf="control['userAddress'].touched&& control['userAddress'].hasError('required')">
+                                    Address is required field!!! <br>
+                                </ng-container>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formBtn">
+                <button type="submit" *ngIf="!isInEditMode" color="primary" mat-raised-button>Add User</button>
+                <button type="button" *ngIf="isInEditMode" color="primary" (click)="onUserUpdate()" [disabled]="userRole==='buyer'" mat-raised-button>Update User</button>
+                <button type="button" color="warn" mat-raised-button (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </mat-card-content>
+
+</mat-card>

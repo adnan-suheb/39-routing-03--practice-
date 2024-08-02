@@ -1,0 +1,39 @@
+@import "../../../../assets/scss/var";
+@import "../../../../assets/scss/mixin";
+
+.homeHeading {
+    @include heading
+}
+
+.userCard, .productCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(90deg, $gradient1, $gradient2);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: $shadow1;
+
+    .details{
+        button{
+            color: $gradient1;
+        }
+    }
+    .image {
+        height: 100px;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+.productCard{
+    background: linear-gradient(90deg, $gradient3, $gradient4);
+    box-shadow: $shadow2;
+    .details{
+        button{
+            color: $gradient3;
+        }
+    }
+}
+

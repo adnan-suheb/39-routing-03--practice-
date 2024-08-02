@@ -1,0 +1,43 @@
+.image {
+    height: 212px;
+    width: 160px;
+    margin: 0 auto;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.name {
+    span {
+        color: #fff;
+        padding: 0 5px;
+        border-radius: 5px;
+    }
+}
+
+
+
+
+.priceSec {
+    text-align: center;
+
+    .price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        height: 21px;
+    }
+
+    p {
+        color: #26a541;
+        font-weight: bold;
+    }
+
+
+}

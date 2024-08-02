@@ -1,0 +1,176 @@
+<mat-card>
+    <mat-card-title class="formHeading" align="center">
+        {{!isInEditMode?'Add Product':"Update Product"}}
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+
+            <div class="row">
+                <!-- brand -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>copyright</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Brand Name</mat-label>
+                            <input type="text" matInput formControlName="brand">
+                            <mat-error *ngIf="control['brand'].touched&& control['brand'].hasError('required')">
+                                Please enter brand name!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- model -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>smartphone</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Model Name</mat-label>
+                            <input type="text" matInput formControlName="model">
+                            <mat-error *ngIf="control['model'].touched&& control['model'].hasError('required')">
+                                Please enter model name!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- image -->
+                <div class="col-md-12">
+                    <div class="control">
+                        <mat-icon>image</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Image URL</mat-label>
+                            <input type="text" matInput formControlName="image">
+                            <mat-error *ngIf="control['image'].touched&& control['image'].hasError('required')">
+                                Please enter image URL!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- color -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>palette</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Color</mat-label>
+                            <input type="text" matInput formControlName="color">
+                            <mat-error *ngIf="control['color'].touched&& control['color'].hasError('required')">
+                                Please enter color details!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- storage -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>storage</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Storage</mat-label>
+                            <mat-select formControlName="storage">
+                                <mat-option *ngFor="let storage of storageArr"
+                                    [value]="storage">{{storage}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="control['storage'].touched&& control['storage'].hasError('required')">
+                                Please select storage details!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- screen size -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>aspect_ratio</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Select Screen Size</mat-label>
+                            <mat-select formControlName="screen_size">
+                                <mat-option *ngFor="let ss of screenSizeArr" [value]="ss">{{ss}}</mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="control['screen_size'].touched&& control['screen_size'].hasError('required')">
+                                Please select screen size!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- ratings -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>star_half</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Select ratings</mat-label>
+                            <mat-select formControlName="rating">
+                                <mat-option *ngFor="let rating of ratingArray" [value]="rating">{{rating}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="control['rating'].touched&& control['rating'].hasError('required')">
+                                Please select ratings!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- processor -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>memory</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Processor Details</mat-label>
+                            <input type="text" matInput formControlName="processor">
+                            <mat-error *ngIf="control['processor'].touched&& control['processor'].hasError('required')">
+                                Please enter processor details!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- battery -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>battery_charging_full</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Battery Capacity</mat-label>
+                            <input type="text" matInput formControlName="battery_capacity">
+                            <mat-error
+                                *ngIf="control['battery_capacity'].touched&& control['battery_capacity'].hasError('required')">
+                                Please enter battery capacity!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- price -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>currency_rupee</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Enter Price</mat-label>
+                            <input type="text" matInput formControlName="price">
+                            <mat-error *ngIf="control['price'].touched&& control['price'].hasError('required')">
+                                Please enter price details!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- canreturn -->
+                <div class="col-md-6">
+                    <div class="control">
+                        <mat-icon>keyboard_return</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Select Can Return Status</mat-label>
+                            <mat-select formControlName="canReturn">
+                                <mat-option value="0">0</mat-option>
+                                <mat-option value="1">1</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="control['canReturn'].touched&& control['canReturn'].hasError('required')">
+                                Please select can return status!!!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="formBtn">
+                <button type="submit" *ngIf="!isInEditMode" color="primary" mat-raised-button>Add Product</button>
+                <button type="button" *ngIf="isInEditMode" color="primary" [disabled]="canReturn==='0'"
+                    (click)="onProdUpdate()" mat-raised-button>Update User</button>
+                <button type="button" color="warn" mat-raised-button (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </mat-card-content>
+
+</mat-card>

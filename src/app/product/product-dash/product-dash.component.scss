@@ -1,0 +1,22 @@
+@import "../../../assets/scss/var";
+@import "../../../assets/scss/mixin";
+
+.usersHeading {
+    text-transform: capitalize !important;
+    @include heading
+}
+
+.list {
+    border-left: 2px solid red;
+
+    .listItem {
+
+        &:hover,
+        &:active,
+        &:focus,
+        &.active {
+            background-color: #ededed;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<mat-card class="my-5 ">
+    <mat-card-title align="center" class="homeHeading">
+        Summary
+    </mat-card-title>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="userCard my-4 p-3">
+                    <div class="details">
+                        <h4>Users Count</h4>
+                        <h1>{{userCount}}</h1>
+                        <button routerLink="users" mat-raised-button>{{'go to users'| titlecase}}
+                            <mat-icon>arrow_circle_right</mat-icon>
+                        </button>
+                    </div>
+                    <div class="image">
+                        <img src="../../../../assets/img/userGroup.png" alt="image">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="productCard my-4 p-3">
+                    <div class="details">
+                        <h4>Products Count</h4>
+                        <h1>{{prodCount}}</h1>
+                        <button routerLink="products" mat-raised-button>{{'go to products'| titlecase}}
+                            <mat-icon>arrow_circle_right</mat-icon>
+                        </button>
+                    </div>
+                    <div class="image">
+                        <img src="../../../../assets/img/products.png" alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+</mat-card>

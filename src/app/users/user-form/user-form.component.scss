@@ -1,0 +1,27 @@
+@import "../../../assets/scss/var";
+@import "../../../assets/scss/mixin";
+
+
+.formHeading {
+    @include heading;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+
+    mat-icon {
+        margin-right: 10px;
+    }
+
+    mat-form-field {
+        width: 90%;
+    }
+}
+
+.formBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

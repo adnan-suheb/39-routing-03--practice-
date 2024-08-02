@@ -1,0 +1,53 @@
+@import "../../../../assets/scss/var";
+
+.navbar {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 90%;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.link {
+    text-transform: uppercase;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.active {
+        color: $color-red;
+    }
+}
+
+
+.sidenav {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+@media(min-width:900px) {
+
+    .menuBtn,
+    mat-sidenav {
+        display: none;
+    }
+}
+
+@media(max-width:900px) {
+    .navLinks {
+        display: none;
+    }
+}

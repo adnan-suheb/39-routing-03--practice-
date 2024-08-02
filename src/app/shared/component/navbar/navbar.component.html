@@ -1,0 +1,38 @@
+<mat-toolbar class="navbar">
+
+    <div class="logo">
+        <img src="../../../../assets/img/logo.png" alt="logo">
+    </div>
+    <div class="navLinks">
+        <button mat-button routerLink="home" routerLinkActive="active" class="link">
+            <mat-icon class="mr-1">home</mat-icon><span>home</span>
+        </button>
+        <button mat-button routerLink="users" routerLinkActive="active" class="link">
+            <mat-icon class="mr-1">group</mat-icon><span>Users</span>
+        </button>
+        <button mat-button routerLink="products" routerLinkActive="active" class="link">
+            <mat-icon class="mr-1">smartphone</mat-icon><span>Products</span>
+        </button>
+    </div>
+
+
+    <button mat-icon-button class="menuBtn" (click)="sidenav.toggle()">
+        <mat-icon>{{!sidenav.opened?'menu':'close'}}</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [fixedInViewport]="true">
+        <div class="sidenav">
+            <button mat-button (click)="sidenav.close()" routerLink="home" routerLinkActive="active" class="link">
+                <mat-icon class="mr-1">home</mat-icon><span>home</span>
+            </button>
+            <button mat-button (click)="sidenav.close()" routerLink="users" routerLinkActive="active" class="link">
+                <mat-icon class="mr-1">group</mat-icon><span>Users</span>
+            </button>
+            <button mat-button (click)="sidenav.close()" routerLink="products" routerLinkActive="active" class="link">
+                <mat-icon class="mr-1">smartphone</mat-icon><span>Products</span>
+            </button>
+        </div>
+    </mat-sidenav>
+</mat-sidenav-container>

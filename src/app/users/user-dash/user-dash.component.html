@@ -1,0 +1,32 @@
+<div class="row my-5">
+
+    <div class="col-md-4">
+        <mat-card>
+
+            <mat-card-title align="center" class="usersHeading">
+                Users List
+            </mat-card-title>
+            <mat-card-content>
+                <mat-list class="list" *ngIf="usersArr.length>0; else noUser">
+                    <mat-list-item [routerLink]="user.userId" [queryParams]="{userRole:user.userRole}"
+                        routerLinkActive="active" *ngFor="let user of usersArr" class="listItem">
+                        <mat-icon class="mr-2">account_circle</mat-icon>
+                        {{user.userName}}
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+                <ng-template #noUser>
+                    <p class="alert alert-danger">No user list found!!!</p>
+                </ng-template>
+            </mat-card-content>
+            <div align="end">
+                <button routerLink="addUser" mat-fab class="addBtn">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

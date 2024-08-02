@@ -1,0 +1,32 @@
+<div class="row my-5">
+
+    <div class="col-md-4">
+        <mat-card>
+
+            <mat-card-title align="center" class="usersHeading">
+                Products List
+            </mat-card-title>
+            <mat-card-content>
+                <mat-list class="list" *ngIf="productArr.length>0; else noUser">
+                    <mat-list-item [routerLink]="product.prodId" [queryParams]="{canReturn:product.canReturn}"
+                        routerLinkActive="active" *ngFor="let product of productArr" class="listItem">
+                        <mat-icon class="mr-2">smartphone</mat-icon>
+                        <strong>{{product.brand}}&nbsp; </strong>{{product.model}}
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+                <ng-template #noUser>
+                    <p class="alert alert-danger">No user list found!!!</p>
+                </ng-template>
+            </mat-card-content>
+            <div align="end">
+                <button routerLink="addProduct" mat-fab class="addBtn">
+                    <mat-icon>library_add</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

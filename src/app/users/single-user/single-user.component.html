@@ -1,0 +1,43 @@
+<mat-card class="singleUser">
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="image">
+                    <img [src]="userObj.personImg" alt="">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="details name">
+                    <mat-icon class="mr-2">account_circle</mat-icon>
+                    <span>{{userObj.userName}}</span>
+                </div>
+                <div class="details">
+                    <mat-icon class="mr-2">admin_panel_settings</mat-icon>
+                    <span>{{userObj.userRole|titlecase}}</span>
+                </div>
+                <div class="details">
+                    <mat-icon class="mr-2">alternate_email</mat-icon>
+                    <span>{{userObj.userEmail}}</span>
+                </div>
+                <div class="details">
+                    <mat-icon class="mr-2">info</mat-icon>
+                    <span>{{userObj.userDetails}}</span>
+                </div>
+                <div class="details">
+                    <mat-icon class="mr-2">badge</mat-icon>
+                    <span>{{userObj.userGender}}, {{userObj.userAge}}</span>
+                </div>
+                <div class="details">
+                    <mat-icon class="mr-2">location_on</mat-icon>
+                    <span>{{userObj.userAddress}}</span>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="mx-4 my-2">
+        <div class="w-100 d-flex justify-content-between">
+            <button  (click)="goToEditUser()" mat-raised-button>Edit</button>
+            <button (click)="onRemove()" mat-raised-button color="warn">Remove</button>
+        </div>
+    </mat-card-actions>
+</mat-card>
